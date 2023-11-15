@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioteca", "Biblioteca\Biblioteca.csproj", "{33EE42F5-55DB-4A18-B6B3-13F750A6C45A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{82BF95F7-B861-4665-B681-0DDE3B812B8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{4B058842-1B62-40B3-899D-3AD39DBC81B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33EE42F5-55DB-4A18-B6B3-13F750A6C45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33EE42F5-55DB-4A18-B6B3-13F750A6C45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33EE42F5-55DB-4A18-B6B3-13F750A6C45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33EE42F5-55DB-4A18-B6B3-13F750A6C45A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82BF95F7-B861-4665-B681-0DDE3B812B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82BF95F7-B861-4665-B681-0DDE3B812B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82BF95F7-B861-4665-B681-0DDE3B812B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82BF95F7-B861-4665-B681-0DDE3B812B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B058842-1B62-40B3-899D-3AD39DBC81B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B058842-1B62-40B3-899D-3AD39DBC81B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B058842-1B62-40B3-899D-3AD39DBC81B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B058842-1B62-40B3-899D-3AD39DBC81B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {999DD09A-3C3D-430D-9114-3B33F987F45C}
+	EndGlobalSection
+EndGlobal
