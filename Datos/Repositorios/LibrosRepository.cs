@@ -31,6 +31,12 @@ namespace Datos.Repositorios
             parameters = new List<SqlParameter>();            
             parameters.Add(new SqlParameter("@Nombre", entity.Nombre));
             parameters.Add(new SqlParameter("@Autor", entity.Autor));
+            parameters.Add(new SqlParameter("@IdLibro", entity.Autor));
+            parameters.Add(new SqlParameter("@AnioPublicacion", entity.Autor));
+            parameters.Add(new SqlParameter("@Categoria", entity.Autor));
+            parameters.Add(new SqlParameter("@CantEjemplares", entity.Autor));
+            parameters.Add(new SqlParameter("@EstadoFisico", entity.Autor));
+            parameters.Add(new SqlParameter("@Genero", entity.Autor));
 
 
             return ExecuteNonQuery(insert);
@@ -39,9 +45,14 @@ namespace Datos.Repositorios
         public int Adit(Libro entity)
         {
             parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@IdLibro", entity.IdLibro));
             parameters.Add(new SqlParameter("@Nombre", entity.Nombre));
             parameters.Add(new SqlParameter("@Autor", entity.Autor));
+            parameters.Add(new SqlParameter("@IdLibro", entity.Autor));
+            parameters.Add(new SqlParameter("@AnioPublicacion", entity.Autor));
+            parameters.Add(new SqlParameter("@Categoria", entity.Autor));
+            parameters.Add(new SqlParameter("@CantEjemplares", entity.Autor));
+            parameters.Add(new SqlParameter("@EstadoFisico", entity.Autor));
+            parameters.Add(new SqlParameter("@Genero", entity.Autor));
 
             return ExecuteNonQuery(update);
         }
@@ -56,7 +67,13 @@ namespace Datos.Repositorios
                 {
                     IdLibro = Convert.ToInt32(item[0]),
                     Nombre = item[1].ToString(),
-                    Autor = item[2].ToString()                    
+                    Autor = item[2].ToString(),
+                    AnioPublicacion = item[3].ToString(), 
+                    Categoria = item[4].ToString(),
+                    CantEjemplares= item[5].ToString(),
+                    EstadoFisico= item[6].ToString(),
+                    Genero= item[7].ToString(),
+
                 });
             }
             return listLibro;
