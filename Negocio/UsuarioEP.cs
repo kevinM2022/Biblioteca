@@ -1,40 +1,78 @@
-﻿using AutoMapper;
-using DataAccess;
-using DataAccess.Entities;
-using Biblioteca.Entidades;
-using Microsoft.EntityFrameworkCore;
-using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain
+[Route("api/Usuario")]
+[ApiController]
+public class UsuarioController : ControllerBase
 {
-    public class UsuarioEP
+    private static List<Usuario> _usuarios = new List<Usuario>();
+
+    // GET api/usuario
+    [HttpGet]
+    public ActionResult<IEnumerable<Usuario>> Get()
     {
-        private readonly ApplicationDbContext context;
-        private readonly IMapper mapper;
+        return Ok(_usuarios);
+    }
 
-        public UsuarioEP(ApplicationDbContext context, IMapper mapper)
+    // GET api/usuario/5
+    [HttpGet("{id}")]
+    public ActionResult<Usuario> Get(int id)
+    {
+        var usuario = _usuarios.FirstOrDefault(u => u.IdUsuario == id);
+
+        if (usuario == null)
         {
-            this.context = context;
-            this.mapper = mapper;
+            return NotFound();
         }
 
-        public async Task<List<UsuarioDTO>> Get()
+        return Ok(usuario);
+    }
+
+    // POST api/usuario
+    [HttpPost]
+    public ActionResult Post([FromBody] Usuario nuevoUsuario)
+    {
+        nuevoUsuario.IdUsuario = _usuarios.Count + 1;
+        _usuarios.Add(nuevoUsuario);
+
+        return CreatedAtAction(nameof(Get), new { id = nuevoUsuario.IdUsuario }, nuevoUsuario);
+    }
+
+    // PUT api/usuario/5
+    [HttpPut("{id}")]
+    public ActionResult Put(int id, [FromBody] Usuario usuarioActualizado)
+    {
+        var usuario = _usuarios.FirstOrDefault(u => u.IdUsuario == id);
+
+        if (usuario == null)
         {
-            var usuario = await context.Usuario.ToListAsync();
-            Console.WriteLine(usuario);
-            return mapper.Map<List<UsuarioDTO>>(usuario);
+            return NotFound();
         }
 
-        public async Task<string> Post(UsuarioCDTO usuarioCDTO)
+        usuario.Nombre = usuarioActualizado.Nombre;
+        usuario.Apellido = usuarioActualizado.Apellido;
+        usuario.Telefono = usuarioActualizado.Telefono;
+        usuario.Correo = usuarioActualizado.Correo;
+        usuario.Rol = usuarioActualizado.Rol;
+        usuario.Direccion = usuarioActualizado.Direccion;
+
+        return NoContent();
+    }
+
+    // DELETE api/usuario/5
+    [HttpDelete("{id}")]
+    public ActionResult Delete(int id)
+    {
+        var usuario = _usuarios.FirstOrDefault(u => u.IdUsuario == id);
+
+        if (usuario == null)
         {
-            var usuario = mapper.Map<Usuario>(usuarioCDTO);
-            context.Add(usuario);
-            await context.SaveChangesAsync();
-            return "EL USUARIO HA SIDO CREADO EXITOSAMENTE";
+            return NotFound();
         }
+
+        _usuarios.Remove(usuario);
+
+        return NoContent();
     }
 }
