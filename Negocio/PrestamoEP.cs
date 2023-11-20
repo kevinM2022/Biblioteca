@@ -1,3 +1,4 @@
+using Datos.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,18 +8,18 @@ using System.Linq;
 [ApiController]
 public class PrestamoController : ControllerBase
 {
-    private static List<Prestamo> _prestamos = new List<Prestamo>();
+    private static List<PrestamoDTO> _prestamos = new List<PrestamoDTO>();
 
     // GET api/prestamo
     [HttpGet]
-    public ActionResult<IEnumerable<Prestamo>> Get()
+    public ActionResult<IEnumerable<PrestamoDTO>> Get()
     {
         return Ok(_prestamos);
     }
 
     // GET api/prestamo/5
     [HttpGet("{id}")]
-    public ActionResult<Prestamo> Get(int id)
+    public ActionResult<PrestamoDTO> Get(int id)
     {
         var prestamo = _prestamos.FirstOrDefault(p => p.IdPrestamo == id);
 
@@ -32,7 +33,7 @@ public class PrestamoController : ControllerBase
 
     // POST api/prestamo
     [HttpPost]
-    public ActionResult Post([FromBody] Prestamo nuevoPrestamo)
+    public ActionResult Post([FromBody] PrestamoDTO nuevoPrestamo)
     {
         nuevoPrestamo.IdPrestamo = _prestamos.Count + 1;
         _prestamos.Add(nuevoPrestamo);
@@ -42,7 +43,7 @@ public class PrestamoController : ControllerBase
 
     // PUT api/prestamo/5
     [HttpPut("{id}")]
-    public ActionResult Put(int id, [FromBody] Prestamo prestamoActualizado)
+    public ActionResult Put(int id, [FromBody] PrestamoDTO prestamoActualizado)
     {
         var prestamo = _prestamos.FirstOrDefault(p => p.IdPrestamo == id);
 

@@ -32,23 +32,22 @@ namespace Domain
             }
         }
 
-       //public async Task<ResultadoOperacionDTO> Post(LibroCDTO libroCDTO)
-       // {
-       //     try
-       //     {
-       //         var libro = mapper.Map<Libro>(libroCDTO);
-       //         context.Add(libro);
-       //         await context.SaveChangesAsync();
+        public async Task<ResultadoOperacionDTO> Post(LibroCDTO libroCDTO)
+        {
+            try
+            {
+                var libro = mapper.Map<Libro>(libroCDTO);
+                context.Add(libro);
+                await context.SaveChangesAsync();
 
-       //         return new ResultadoOperacionDTO { Exitoso = true, Mensaje = "Libro creado correctamente" };
-       //     }
-       //     catch (Exception ex)
-       //     {
-       //         Console.WriteLine($"Error al crear libro: {ex.Message}");
-       //         return new ResultadoOperacionDTO { Exitoso = false, Mensaje = "Error al crear libro" };
-       //     }
+                return new ResultadoOperacionDTO { Exitoso = true, Mensaje = "Libro creado correctamente" };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al crear libro: {ex.Message}");
+                return new ResultadoOperacionDTO { Exitoso = false, Mensaje = "Error al crear libro" };
+            }
 
-          
-       // }
+        }
     }
 }
