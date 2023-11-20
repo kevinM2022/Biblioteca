@@ -1,5 +1,5 @@
 using AutoMapper;
-using DataAccess.Domain;
+using DataAccess.Negocio;
 using Datos.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;

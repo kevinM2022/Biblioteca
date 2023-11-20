@@ -1,6 +1,5 @@
 using AutoMapper;
 using DataAccess;
-using DataAccess.Entities;
 using Datos.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
