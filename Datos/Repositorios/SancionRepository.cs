@@ -26,7 +26,7 @@ namespace Datos.Repositorios
             delete = "DELETE FROM Multas WHERE IdMulta = @IdMulta";
         }
 
-        public int Add(Sancion entity)
+        public int Add(SancionDTO entity)
         {
             parameters = new List<SqlParameter>();   
             parameters.Add(new SqlParameter("@IdSancion", entity.IdSancion));         
@@ -36,7 +36,7 @@ namespace Datos.Repositorios
             return ExecuteNonQuery(insert);
         }
 
-        public int Adit(Sancion entity)
+        public int Adit(SancionDTO entity)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@IdLibro", entity.IdSancion));
@@ -46,13 +46,13 @@ namespace Datos.Repositorios
             return ExecuteNonQuery(update);
         }
 
-        public IEnumerable<Sancion> GetAll()
+        public IEnumerable<SancionDTO> GetAll()
         {
             var tableResult = ExecuteReader(selectAll);
-            var listsancion = new List<Sancion>();
+            var listsancion = new List<SancionDTO>();
             foreach (DataRow item in tableResult.Rows)
             {
-                listsancion.Add(new Sancion
+                listsancion.Add(new SancionDTO
                 {
                     IdSancion = Convert.ToInt32(item[0]),
                     Concepto = item[1].ToString(),

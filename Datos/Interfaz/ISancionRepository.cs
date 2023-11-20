@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Datos.Interfaz
 {
-    public interface ISancionRepository : IGenericRepository<Sancion>
+    public interface ISancionRepository : IGenericRepository<SancionDTO>
     {
         //Otros metodos
     }

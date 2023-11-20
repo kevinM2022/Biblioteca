@@ -11,7 +11,7 @@ using Datos.Entidades;
 
 namespace Datos.Repositorios
 {
-    public class LibrosRepository: MasterRepository, ILibrosRepository
+    public class PrestamosRepository: MasterRepository, IPrestamosRepository
     {
         private string selectAll;
         private string insert;
@@ -26,10 +26,10 @@ namespace Datos.Repositorios
             delete = "DELETE FROM Prestamos WHERE IdPrestamo = @IdPrestamo";
         }
 
-        public int Add(Libro entity)
+        public int Add(PrestamoDTO entity)
         {
             parameters = new List<SqlParameter>();   
-            parameters.Add(new SqlParameter("@IdPrestamo", entity.Autor));         
+            parameters.Add(new SqlParameter("@IdPrestamo", entity.IdPrestamo));         
             parameters.Add(new SqlParameter("@CantidadLibros", entity.CantidadLibros));
             parameters.Add(new SqlParameter("@EstadoPrestamo", entity.EstadoPrestamo));
             parameters.Add(new SqlParameter("@FechaPrestamo", entity.FechaPrestamo));
@@ -38,10 +38,10 @@ namespace Datos.Repositorios
             return ExecuteNonQuery(insert);
         }
 
-        public int Adit(Libro entity)
+        public int Adit(PrestamoDTO entity)
         {
             parameters = new List<SqlParameter>();   
-            parameters.Add(new SqlParameter("@IdPrestamo", entity.Autor));         
+            parameters.Add(new SqlParameter("@IdPrestamo", entity.IdPrestamo));         
             parameters.Add(new SqlParameter("@CantidadLibros", entity.CantidadLibros));
             parameters.Add(new SqlParameter("@EstadoPrestamo", entity.EstadoPrestamo));
             parameters.Add(new SqlParameter("@FechaPrestamo", entity.FechaPrestamo));
@@ -50,13 +50,13 @@ namespace Datos.Repositorios
             return ExecuteNonQuery(update);
         }
 
-        public IEnumerable<Prestamo> GetAll()
+        public IEnumerable<PrestamoDTO> GetAll()
         {
             var tableResult = ExecuteReader(selectAll);
-            var listPrestamo= new List<Prestamo>();
+            var listPrestamo= new List<PrestamoDTO>();
             foreach (DataRow item in tableResult.Rows)
             {
-                listLibro.Add(new Prestamo
+                listPrestamo.Add(new PrestamoDTO
                 {
                     IdPrestamo = Convert.ToInt32(item[0]),
                     CantidadLibros = item[1].ToString(),

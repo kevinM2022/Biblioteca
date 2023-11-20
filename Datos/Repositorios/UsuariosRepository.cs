@@ -26,7 +26,7 @@ namespace Datos.Repositorios
             delete = "DELETE FROM Libros WHERE IdUsuario = @IdUsuario";
         }
 
-        public int Add(Usuario entity)
+        public int Add(UsuarioDTO entity)
         {
             parameters = new List<SqlParameter>();            
             parameters.Add(new SqlParameter("@Nombre", entity.Nombre));
@@ -39,7 +39,7 @@ namespace Datos.Repositorios
             return ExecuteNonQuery(insert);
         }
 
-        public int Adit(Usuario entity)
+        public int Adit(UsuarioDTO entity)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@Nombre", entity.Nombre));
@@ -52,13 +52,13 @@ namespace Datos.Repositorios
             return ExecuteNonQuery(update);
         }
 
-        public IEnumerable<Usuario> GetAll()
+        public IEnumerable<UsuarioDTO> GetAll()
         {
             var tableResult = ExecuteReader(selectAll);
-            var listUsuario = new List<Usuario>();
+            var listUsuario = new List<UsuarioDTO>();
             foreach (DataRow item in tableResult.Rows)
             {
-                listUsuario.Add(new Usuario
+                listUsuario.Add(new UsuarioDTO
                 {
                     IdUsuario = Convert.ToInt32(item[0]),
                     Nombre = item[1].ToString(),

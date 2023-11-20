@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Datos.Interfaz
 {
-    public interface IPrestamosRepository : IGenericRepository<Prestamos>
+    public interface IPrestamosRepository : IGenericRepository<PrestamoDTO>
     {
         //Otros metodos
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Datos.Interfaz
 {
-    public interface IUsuarioRepository : IGenericRepository<Usuario>
+    public interface IUsuarioRepository : IGenericRepository<UsuarioDTO>
     {
         //Otros metodos
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Datos.Interfaz
 {
-    public interface ILibrosRepository : IGenericRepository<Libro>
+    public interface ILibrosRepository : IGenericRepository<LibroDTO>
     {
         //Otros metodos
     }

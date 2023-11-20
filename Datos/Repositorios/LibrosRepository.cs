@@ -26,9 +26,9 @@ namespace Datos.Repositorios
             delete = "DELETE FROM Libros WHERE IdLibro = @IdLibro";
         }
 
-        public int Add(Libro entity)
+        public int Add(LibroDTO entity)
         {
-            parameters = new List<SqlParameter>();            
+            parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@Nombre", entity.Nombre));
             parameters.Add(new SqlParameter("@Autor", entity.Autor));
             parameters.Add(new SqlParameter("@IdLibro", entity.Autor));
@@ -42,7 +42,7 @@ namespace Datos.Repositorios
             return ExecuteNonQuery(insert);
         }
 
-        public int Adit(Libro entity)
+        public int Adit(LibroDTO entity)
         {
             parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@Nombre", entity.Nombre));
@@ -57,22 +57,22 @@ namespace Datos.Repositorios
             return ExecuteNonQuery(update);
         }
 
-        public IEnumerable<Libro> GetAll()
+        public IEnumerable<LibroDTO> GetAll()
         {
             var tableResult = ExecuteReader(selectAll);
-            var listLibro = new List<Libro>();
+            var listLibro = new List<LibroDTO>();
             foreach (DataRow item in tableResult.Rows)
             {
-                listLibro.Add(new Libro
+                listLibro.Add(new LibroDTO
                 {
                     IdLibro = Convert.ToInt32(item[0]),
                     Nombre = item[1].ToString(),
                     Autor = item[2].ToString(),
-                    AnioPublicacion = item[3].ToString(), 
+                    AnioPublicacion = item[3].ToString(),
                     Categoria = item[4].ToString(),
-                    CantEjemplares= item[5].ToString(),
-                    EstadoFisico= item[6].ToString(),
-                    Genero= item[7].ToString(),
+                    CantEjemplares = item[5].ToString(),
+                    EstadoFisico = item[6].ToString(),
+                    Genero = item[7].ToString(),
 
                 });
             }
