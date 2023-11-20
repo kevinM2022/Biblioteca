@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Datos.Entidades
 {
     //Una entidad por cada tabla de sql, contendra los atributos de las tablas
-    public class Sancion
+    public class SancionDTO
     {
         public int IdSancion { get; set; }
         public string Concepto { get; set; }

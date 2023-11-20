@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Datos.Entidades
 {
 
-    public class Usuario
+    public class UsuarioDTO
     {
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }

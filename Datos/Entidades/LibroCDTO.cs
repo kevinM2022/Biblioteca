@@ -3,39 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Datos.Entidades
 {
     public class LibroCDTO
     {
-        [required]
+        [Required]
         public int IdLibro { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 60)]
         public string Nombre { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 60)]
         public string Autor { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 20)]
         public string AnioPublicacion { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 40)]
         public string Categoria { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 10)]
         public string CantEjemplares { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 20)]
         public string EstadoFisico { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 40)]
         public string Genero { get; set; }
     }

@@ -1,22 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Datos.Entidades
 {
-
     public class PrestamoCDTO
     {
-        [required]
+        [Required]
         public int IdPrestamo { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 20)]
         public string CantidadLibros { get; set; }
 
-        [required]
+        [Required]
         [StringLength(maximumLength: 20)]
         public string EstadoPrestamo { get; set; }
 
