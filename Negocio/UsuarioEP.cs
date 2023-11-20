@@ -15,11 +15,11 @@ namespace Domain
         private readonly ApplicationDbContext context;
         private readonly IMapper mapper;
 
-        // public UsuarioEP(ApplicationDbContext context, IMapper mapper)
-        // {
-        //     this.context = context;
-        //     this.mapper = mapper;
-        // }
+        public UsuarioEP(ApplicationDbContext context, IMapper mapper)
+        {
+          this.context = context;
+         this.mapper = mapper;
+        }
 
         public async Task<List<UsuarioDTO>> Get()
         {
