@@ -12,7 +12,7 @@ namespace Datos.Entidades
         public int IdPrestamo { get; set; }
         public string CantidadLibros { get; set; }
         public string EstadoPrestamo { get; set; }
-        public string FechaPrestamo { get; set; }
-        public string Devolucion { get; set; }
+        public DateOnly FechaPrestamo { get; set; }
+        public DateOnly Devolucion { get; set; }
     }
 }
