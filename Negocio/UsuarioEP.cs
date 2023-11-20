@@ -1,5 +1,5 @@
 using AutoMapper;
-using DataAccess;
+using Datos;
 using Datos.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,11 +15,11 @@ namespace Domain
         private readonly ApplicationDbContext context;
         private readonly IMapper mapper;
 
-        public UsuarioEP(ApplicationDbContext context, IMapper mapper)
-        {
-            this.context = context;
-            this.mapper = mapper;
-        }
+        // public UsuarioEP(ApplicationDbContext context, IMapper mapper)
+        // {
+        //     this.context = context;
+        //     this.mapper = mapper;
+        // }
 
         public async Task<List<UsuarioDTO>> Get()
         {
@@ -30,7 +30,7 @@ namespace Domain
 
         public async Task<string> Post(UsuarioCDTO usuarioCDTO)
         {
-            var usuario = mapper.Map<Usuario>(usuarioCDTO);
+            var usuario = mapper.Map<UsuarioDTO>(usuarioCDTO);
             context.Add(usuario);
             await context.SaveChangesAsync();
             return "Usuario creado correctamente";

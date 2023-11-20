@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Datos.Entidades;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,18 +7,18 @@ using System.Linq;
 [ApiController]
 public class SancionController : ControllerBase
 {
-    private static List<Sancion> _sanciones = new List<Sancion>();
+    private static List<SancionDTO> _sanciones = new List<SancionDTO>();
 
     // GET api/sancion
     [HttpGet]
-    public ActionResult<IEnumerable<Sancion>> Get()
+    public ActionResult<IEnumerable<SancionDTO>> Get()
     {
         return Ok(_sanciones);
     }
 
     // GET api/sancion/5
     [HttpGet("{id}")]
-    public ActionResult<Sancion> Get(int id)
+    public ActionResult<SancionDTO> Get(int id)
     {
         var sancion = _sanciones.FirstOrDefault(s => s.IdSancion == id);
 
@@ -31,7 +32,7 @@ public class SancionController : ControllerBase
 
     // POST api/sancion
     [HttpPost]
-    public ActionResult Post([FromBody] Sancion nuevaSancion)
+    public ActionResult Post([FromBody] SancionDTO nuevaSancion)
     {
         nuevaSancion.IdSancion = _sanciones.Count + 1;
         _sanciones.Add(nuevaSancion);
@@ -41,7 +42,7 @@ public class SancionController : ControllerBase
 
     // PUT api/sancion/5
     [HttpPut("{id}")]
-    public ActionResult Put(int id, [FromBody] Sancion sancionActualizada)
+    public ActionResult Put(int id, [FromBody] SancionDTO sancionActualizada)
     {
         var sancion = _sanciones.FirstOrDefault(s => s.IdSancion == id);
 
