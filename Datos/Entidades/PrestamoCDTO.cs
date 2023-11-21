@@ -13,17 +13,16 @@ namespace Datos.Entidades
         public int IdPrestamo { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 20)]
-        public string CantidadLibros { get; set; }
+        public int CantidadLibros { get; set; }
 
         [Required]
         [StringLength(maximumLength: 20)]
         public string EstadoPrestamo { get; set; }
 
-        [StringLength(maximumLength: 20)]
-        public string FechaPrestamo { get; set; }
+        [Required]
+        public DateOnly FechaPrestamo { get; set; }
 
-        [StringLength(maximumLength: 20)]
-        public string Devolucion { get; set; }
+        [Required]
+        public DateOnly Devolucion { get; set; }
     }
 }

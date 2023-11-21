@@ -17,7 +17,7 @@ namespace Datos.Entidades
 
         public string Categoria { get; set; }
 
-        public string CantEjemplares { get; set; }
+        public int CantEjemplares { get; set; }
 
         public string EstadoFisico { get; set; }
 

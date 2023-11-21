@@ -18,8 +18,7 @@ namespace Datos.Entidades
 
 
         [Required]
-        [StringLength(maximumLength: 20)]
-        public string Monto { get; set; }
+        public int Monto { get; set; }
 
     }
 }

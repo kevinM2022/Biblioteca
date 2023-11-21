@@ -37,7 +37,7 @@ namespace Datos.Entidades
         public string EstadoFisico { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 40)]
+        [StringLength(maximumLength: 80)]
         public string Genero { get; set; }
     }
 }
