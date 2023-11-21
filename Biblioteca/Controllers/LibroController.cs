@@ -9,8 +9,8 @@ public class LibroController : ControllerBase
     // Simulación de datos (puedes reemplazar esto con una base de datos u otro almacenamiento)
     private static List<LibroDTO> _libros = new List<LibroDTO>
     {
-        new LibroDTO { IdLibro = 1, Nombre = "El señor de los anillos", Autor = "J.R.R. Tolkien", AnioPublicacion = "1954", Categoria = "Fantasía", CantEjemplares = 100, EstadoFisico = "Bueno", Genero = "Épica" },
-        new LibroDTO { IdLibro = 2, Nombre = "Cien años de soledad", Autor = "Gabriel García Márquez", AnioPublicacion = "1967", Categoria = "Realismo mágico", CantEjemplares = 75, EstadoFisico = "Regular", Genero = "Novela" }
+        new LibroDTO { IdLibro = 1, Nombre = "El señor de los anillos", Autor = "J.R.R. Tolkien", AnioPublicacion = "1954", Categoria = "Fantasía", CantEjemplares = "100", EstadoFisico = "Bueno", Genero = "Épica" },
+        new LibroDTO { IdLibro = 2, Nombre = "Cien años de soledad", Autor = "Gabriel García Márquez", AnioPublicacion = "1967", Categoria = "Realismo mágico", CantEjemplares = "75", EstadoFisico = "Regular", Genero = "Novela" }
     };
 
     // GET api/libro
