@@ -38,5 +38,13 @@ namespace Datos.Entidades
         [StringLength(maximumLength: 120)]
         public string Direccion {get;set;}
 
+        [Required]
+        [StringLength(maximumLength:100)]
+        public string Usuario {get;set;}
+
+        [Required]
+        [StringLength(maximumLength:150)]
+        public string Password {get;set;}
+
     }
 }
