@@ -88,6 +88,8 @@ public ActionResult<UsuarioDTO> Get(int id)
         existingUsuario.Correo = usuario.Correo;
         existingUsuario.Rol = usuario.Rol;
         existingUsuario.Direccion = usuario.Direccion;
+        existingUsuario.Usuario= usuario.Usuario;
+        existingUsuario.Usuario= usuario.Password;
 
         return NoContent(); // Devuelve un código 204 (No Content) indicando que la operación fue exitosa
     }
