@@ -2,6 +2,7 @@
 using Datos.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -10,8 +11,9 @@ public class PrestamoController : ControllerBase
     // Simulación de datos (puedes reemplazar esto con una base de datos u otro almacenamiento)
     private static List<PrestamoDTO> _prestamos = new List<PrestamoDTO>
     {
-        new PrestamoDTO { IdPrestamo = 1, CantidadLibros = "2", EstadoPrestamo = "Activo", FechaPrestamo = new DateOnly(2023, 1, 1), Devolucion = new DateOnly(2023, 2, 1) },
-        new PrestamoDTO { IdPrestamo = 2, CantidadLibros = "3", EstadoPrestamo = "Inactivo", FechaPrestamo = new DateOnly(2023, 3, 1), Devolucion = new DateOnly(2023, 4, 1) }
+new PrestamoDTO { IdPrestamo = 1, CantidadLibros = "2", EstadoPrestamo = "Activo", FechaPrestamo = new DateTime(2023, 1, 1), Devolucion = DateTime.ParseExact("01-02-2023", "dd-MM-yyyy", CultureInfo.InvariantCulture) },
+new PrestamoDTO { IdPrestamo = 2, CantidadLibros = "3", EstadoPrestamo = "Inactivo", FechaPrestamo = new DateTime(2023, 3, 1), Devolucion = DateTime.ParseExact("01-04-2023", "dd-MM-yyyy", CultureInfo.InvariantCulture) }
+
     };
 
     // GET api/prestamo

@@ -12,8 +12,8 @@ namespace Domain.Models
         private int idPrestamo;
         private string cantidadLibros;
         private string estadoPrestamo;
-        private DateOnly fechaPrestamo;
-        private DateOnly devolucion;
+        private DateTime fechaPrestamo;
+        private DateTime devolucion;
 
         private PrestamosRepository prestamoRepository;
         private List<PrestamoModel> listaPrestamos;
@@ -23,8 +23,8 @@ namespace Domain.Models
         public int IdPrestamo { get => idPrestamo; set => idPrestamo = value; }
         public string CantidadLibros { get => cantidadLibros; set => cantidadLibros = value; }
         public string EstadoPrestamo { get => estadoPrestamo; set => estadoPrestamo = value; }
-        public DateOnly FechaPrestamo { get => fechaPrestamo; set => fechaPrestamo = value; }
-        public DateOnly Devolucion { get => devolucion; set => devolucion = value; }
+        public DateTime FechaPrestamo { get => fechaPrestamo; set => fechaPrestamo = value; }
+        public DateTime Devolucion { get => devolucion; set => devolucion = value; }
 
         public PrestamoModel()
         {

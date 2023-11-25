@@ -61,8 +61,8 @@ namespace Datos.Repositorios
                     IdPrestamo = Convert.ToInt32(item[0]),
                     CantidadLibros = item[1].ToString(),
                     EstadoPrestamo = item[2].ToString(),
-                    FechaPrestamo = (DateOnly)item[3], 
-                    Devolucion = (DateOnly)item[4],
+                    FechaPrestamo = (DateTime)item[3], 
+                    Devolucion = (DateTime)item[4],
 
                 });
             }
