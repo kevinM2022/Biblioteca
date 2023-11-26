@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Datos.Entidades;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Datos.Entidades;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ public class UsuarioController : ControllerBase
     private static List<UsuarioDTO> _usuarios = new List<UsuarioDTO>
     {
         new UsuarioDTO { IdUsuario = 1, Nombre = "John", Apellido = "Doe", Telefono = "123456789", Correo = "john.doe@example.com", Rol = "Usuario", Direccion = "123 Main St", User = "john_user", Password = "password123" },
-        new UsuarioDTO { IdUsuario = 2, Nombre = "Jane", Apellido = "Doe", Telefono = "987654321", Correo = "jane.doe@example.com", Rol = "Admin", Direccion = "456 Broad St", User = "jane_user", Password = "admin123" }
+        new UsuarioDTO { IdUsuario = 2, Nombre = "Jane", Apellido = "Doe", Telefono = "987654321", Correo = "jane.doe@example.com", Rol = "Admin", Direccion = "456 Broad St",User = "jane_user", Password = "admin123" }
     };
 
     [HttpGet]
@@ -75,4 +77,30 @@ public class UsuarioController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpPost("authenticate")]
+    public ActionResult<string> Authenticate([FromBody] UsuarioDTO usuario)
+    {
+        if (usuario == null)
+        {
+            return BadRequest("La solicitud no contiene datos de usuario.");
+        }
+
+        var response = _usuarios.Find(u => u.User == usuario.User);
+
+        if (response == null)
+        {
+            return NotFound("Usuario no encontrado.");
+        }
+
+        if (response.Password == usuario.Password)
+        {
+            return Ok("Autenticación exitosa."); // Puedes devolver un token JWT u otro mensaje de éxito.
+        }
+        else
+        {
+            return BadRequest("Contraseña incorrecta.");
+        }
+    }
+
 }

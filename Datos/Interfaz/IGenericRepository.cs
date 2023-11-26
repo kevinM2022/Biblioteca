@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace DataAccess.Contracts
         int Adit(Entity entity);
         int Remove(int id);
         IEnumerable<Entity> GetAll();
+        UsuarioDTO ValidacionUser(UsuarioDTO usuario);
     }
     //Cualquier clase que utilice esta interfaz utilizara los 4 metodos
 }

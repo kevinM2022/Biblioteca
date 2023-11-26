@@ -76,5 +76,10 @@ namespace Datos.Repositorios
 
             return ExecuteNonQuery(delete);
         }
+
+        public UsuarioDTO ValidacionUser(UsuarioDTO usuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

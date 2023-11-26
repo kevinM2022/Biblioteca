@@ -10,6 +10,6 @@ namespace Datos.Interfaz
 {
     public interface IUsuarioRepository : IGenericRepository<UsuarioDTO>
     {
-        //Otros metodos
+
     }
 }

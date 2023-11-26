@@ -28,15 +28,17 @@ namespace Datos.Repositorios
 
         public int Add(LibroDTO entity)
         {
-            parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@Nombre", entity.Nombre));
-            parameters.Add(new SqlParameter("@Autor", entity.Autor));
-            parameters.Add(new SqlParameter("@IdLibro", entity.Autor));
-            parameters.Add(new SqlParameter("@AnioPublicacion", entity.Autor));
-            parameters.Add(new SqlParameter("@Categoria", entity.Autor));
-            parameters.Add(new SqlParameter("@CantEjemplares", entity.Autor));
-            parameters.Add(new SqlParameter("@EstadoFisico", entity.Autor));
-            parameters.Add(new SqlParameter("@Genero", entity.Autor));
+            parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@Nombre", entity.Nombre),
+                new SqlParameter("@Autor", entity.Autor),
+                new SqlParameter("@IdLibro", entity.Autor),
+                new SqlParameter("@AnioPublicacion", entity.Autor),
+                new SqlParameter("@Categoria", entity.Autor),
+                new SqlParameter("@CantEjemplares", entity.Autor),
+                new SqlParameter("@EstadoFisico", entity.Autor),
+                new SqlParameter("@Genero", entity.Autor)
+            };
 
 
             return ExecuteNonQuery(insert);
@@ -85,6 +87,11 @@ namespace Datos.Repositorios
             parameters.Add(new SqlParameter("@IdLibro", id));
 
             return ExecuteNonQuery(delete);
+        }
+
+        public UsuarioDTO ValidacionUser(UsuarioDTO usuario)
+        {
+            throw new NotImplementedException();
         }
     }
 }
