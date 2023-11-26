@@ -23,7 +23,7 @@ namespace Datos.Repositorios
             selectAll = "SELECT * FROM Multas";
             insert = "INSERT INTO Multas VALUES ()";
             update = "UPDATE Products SET";
-            delete = "DELETE FROM Multas WHERE IdMulta = @IdMulta";
+            delete = "DELETE FROM Multas WHERE IdMulta = @IdSancion";
         }
 
         public int Add(SancionDTO entity)
