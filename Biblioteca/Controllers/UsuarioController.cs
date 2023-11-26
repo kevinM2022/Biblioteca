@@ -10,8 +10,8 @@ public class UsuarioController : ControllerBase
 {
     private static List<UsuarioDTO> _usuarios = new List<UsuarioDTO>
     {
-        new UsuarioDTO { IdUsuario = 1, Nombre = "John", Apellido = "Doe", Telefono = "123456789", Correo = "john.doe@example.com", Rol = "Usuario", Direccion = "123 Main St", Usuario = "john_user", Password = "password123" },
-        new UsuarioDTO { IdUsuario = 2, Nombre = "Jane", Apellido = "Doe", Telefono = "987654321", Correo = "jane.doe@example.com", Rol = "Admin", Direccion = "456 Broad St", Usuario = "jane_user", Password = "admin123" }
+        new UsuarioDTO { IdUsuario = 1, Nombre = "John", Apellido = "Doe", Telefono = "123456789", Correo = "john.doe@example.com", Rol = "Usuario", Direccion = "123 Main St", User = "john_user", Password = "password123" },
+        new UsuarioDTO { IdUsuario = 2, Nombre = "Jane", Apellido = "Doe", Telefono = "987654321", Correo = "jane.doe@example.com", Rol = "Admin", Direccion = "456 Broad St", User = "jane_user", Password = "admin123" }
     };
 
     [HttpGet]
@@ -56,7 +56,7 @@ public class UsuarioController : ControllerBase
         existingUsuario.Correo = usuario.Correo;
         existingUsuario.Rol = usuario.Rol;
         existingUsuario.Direccion = usuario.Direccion;
-        existingUsuario.Usuario = usuario.Usuario;
+        existingUsuario.User = usuario.User;
         existingUsuario.Password = usuario.Password;
 
         return NoContent();
